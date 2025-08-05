@@ -1,0 +1,30 @@
+Question 2: Third Largest element
+Problem Statement: Given an array of n integers, the task is to find the third largest element. All the elements in the array are distinct integers. 
+
+Example:
+Input: arr[] = {1, 14, 2, 16, 10, 20}
+Output: 14
+Explanation: Largest element is 20, second largest element is 16 and third largest element is 14
+
+Input: arr[] = {19, -10, 20, 14, 2, 16, 10}
+Output: 16
+Explanation: Largest element is 20, second largest element is 19 and third largest element is 16
+
+Solution:
+
+class Solution:
+    def thirdLargest(self,arr):
+        # code here
+        first = second = third = float('-inf') 
+        for i in range(len(arr)):
+            if arr[i]>first:
+                third=second
+                second=first
+                first=arr[i]
+            elif arr[i]>second:
+                third=second
+                second= arr[i]
+            elif arr[i]>third:
+                third=arr[i]
+                
+        return third if third != float('-inf') else -1    
