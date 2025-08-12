@@ -1,0 +1,38 @@
+Question 9: Adding one to number represented as array of digits and output as array
+Problem Statement: Given a non-negative number represented as an array of digits. The is to add 1 to the number (increment the number represented by the digits by 1). The digits are stored such that the most significant digit is the first element of the array.
+
+Example:
+Input : [1, 2, 4]
+Output : 125
+Explanation: 124 + 1 = 125 
+
+Input : [9, 9, 9]
+Output: 1000
+Explanation: 999 + 1 = 1000
+
+Solution:
+
+class Solution:
+    # Function to add one to a number represented as an array
+    def addOne(self, arr):
+        # code here
+        # initialize an index to end of array
+        index = len(arr) - 1
+        
+        # while the index is valid and the value
+        # at index is 9
+        while index >= 0 and arr[index] == 9:
+            arr[index] = 0
+            index -= 1
+        
+        # if index < 0 (if all arr were 9)
+        if index < 0:
+        
+            # insert an one at the beginning of the list
+            arr.insert(0, 1)
+        
+        # else increment the value at [index]
+        else:
+            arr[index] += 1
+        
+        return arr
