@@ -1,1 +1,50 @@
 Given the head of a singly linked list and an integer k, rotate the list to the left by k positions and return the updated head.
+
+class Node {
+    constructor(new_data) {
+        this.data = new_data;
+        this.next = null;
+    }
+}
+
+function rotate(head, k) {
+    if (k === 0 || head === null) {
+        return head;
+    }
+
+    // rotate the list by k nodes
+    for (let i = 0; i < k; ++i) {
+        let curr = head;
+        while (curr.next !== null) {
+            curr = curr.next;
+        }
+
+        // move the first node to the last
+        curr.next = head;
+        curr = curr.next;
+        head = head.next;
+        curr.next = null;
+    }
+    return head;
+}
+
+function printList(node) {
+    let result = '';
+    while (node !== null) {
+        result += node.data;
+        if(node.next != null){
+            result += " -> ";
+        }
+        node = node.next;
+    }
+    console.log(result.trim());
+}
+
+// Driver Code
+let head = new Node(10);
+head.next = new Node(20);
+head.next.next = new Node(30);
+head.next.next.next = new Node(40);
+
+head = rotate(head, 6);
+printList(head);
