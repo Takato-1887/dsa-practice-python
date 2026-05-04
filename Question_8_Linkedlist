@@ -1,2 +1,62 @@
 Given two singly linked lists, The task is to insert nodes of the second list into the first list at alternate positions of the first list and leave the remaining nodes of the second list if it is longer.
 
+# Python program to merge a linked list into another at
+# alternate positions
+class Node:
+    def __init__(self, x):
+        self.data = x
+        self.next = None
+
+
+def printList(head):
+    curr = head
+    while curr:
+        print(curr.data, end=" ")
+        curr = curr.next
+    print()
+
+# Function to merge two linked lists
+def merge(head1, head2):
+  
+    # Initialize pointers to traverse the two lists
+    temp1 = head1
+    temp2 = head2
+
+    # Traverse both lists and merge them
+    while temp1 is not None and temp2 is not None:
+      
+        # Save the next nodes of the current
+        # nodes in both lists
+        ptr1 = temp1.next
+        ptr2 = temp2.next
+
+        # Insert the current node from the second list
+        # after the current node from the first list
+        temp2.next = temp1.next
+        temp1.next = temp2
+
+        # Update the pointers for the next iteration
+        temp1 = ptr1
+        temp2 = ptr2
+
+    return [head1, temp2]
+
+
+if __name__ == "__main__":
+  
+    # Creating first linked list 1->2->3
+    head1 = Node(1)
+    head1.next = Node(2)
+    head1.next.next = Node(3)
+
+    # Creating second linked list 4->5->6->7->8
+    head2 = Node(4)
+    head2.next = Node(5)
+    head2.next.next = Node(6)
+    head2.next.next.next = Node(7)
+    head2.next.next.next.next = Node(8)
+
+    # Store first and second head points in array
+    ar = merge(head1, head2)
+    printList(ar[0])
+    printList(ar[1])
