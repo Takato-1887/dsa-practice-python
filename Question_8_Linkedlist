@@ -1,0 +1,2 @@
+Given two singly linked lists, The task is to insert nodes of the second list into the first list at alternate positions of the first list and leave the remaining nodes of the second list if it is longer.
+
