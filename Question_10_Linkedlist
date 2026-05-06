@@ -1,1 +1,11 @@
 A Queue is a linear data structure that follows the First-In-First-Out (FIFO) principle. The element inserted first is the first one to be removed.
+
+class Node:
+    def __init__(self, new_data):
+        self.data = new_data
+        self.next = None
+
+class myQueue:
+    def __init__(self):
+        self.front = None
+        self.rear = None
