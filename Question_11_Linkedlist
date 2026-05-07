@@ -1,1 +1,15 @@
 A stack is a linear data structure that follows the Last-In-First-Out (LIFO) principle. It can be implemented using a linked list, where each element of the stack is represented as a node. The head of the linked list acts as the top of the stack.
+
+# Node structure
+class Node:
+    def __init__(self, x):
+        self.data = x
+        self.next = None
+
+
+# Stack class
+class myStack:
+    def __init__(self):
+        
+        # initially stack is empty
+        self.top = None
